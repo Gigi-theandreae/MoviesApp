@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOVIE APP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1> Movies To Watch </h1>
+    <p>Create your own watch list</p>
+    <form action="/addMovies" method="POST">
+        <input type="text" placeholder="Movie Name" name="movieName">
+        <button type="submit">SUBMIT</button>
+    </form>
+
+    <h2 style="margin-left: 2rem;">My Movies</h2>
+    <ul class="movies">
+        <% for(let i = 0; i<movies.length; i++) { %>
+        <!-- movies is the array of objects (data) -->
+           <li class="movie" style="margin-top: 0.5rem; list-style: none">
+            <!-- With click change the color of the check icon -->
+                <span id="checkbox" class="fa fa-check"></span>
+                <!-- With click color will change to rgb(125, 209, 0); -->
+            <% if(movies[i].completed === true){%>
+
+                <span class="status completed"><%= movies[i].name %></span>
+            <% } else { %>
+                <span class="status incomplete"><%= movies[i].name %></span>
+            <% } %>
+            <span class='fa fa-trash'></span>
+           </li> 
+        <% } %>
+    </ul>
+
+    <div>
+        <h2 style="margin-left: 2rem;"> Movie List: <%= left %> </h2>
+        
+    </div>
+    <script src="/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+/* Test */
+
+.completed{
+    color: gray;
+    text-decoration: line-through;
+}
+
+
+
+.fa-check {
+    font-size:1rem;padding:0.2rem; border-radius: 5px; color: rgb(220, 216, 216); background-color:rgb(220, 216, 216);
+}
