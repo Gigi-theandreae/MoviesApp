@@ -41,7 +41,7 @@ async function toggleWatched(event){
         const response = await fetch 
         ('toggleWatched', {
             method: 'put',
-            header: {'Content-Type': 'application/json'}, 
+            headers: {'Content-Type': 'application/json'}, 
             body: JSON.stringify({
                 'movieFromJS': movieText,
                 'isComplete': !isComplete
