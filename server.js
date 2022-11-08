@@ -39,37 +39,22 @@ app.post("/addMovies", (req, res) => {
     .catch(error => console.log(error))
 })
 
-app.put("/markWatched", (req, res) => {
+app.put("/toggleWatched", (req, res) => {
+
+    console.log(req.body);
    db.collection('movies').updateOne({name: req.body.movieFromJS},{
         $set: {
-            completed: true
+            completed: req.body.isComplete
         }
    },{
         sort: {_id: -1}, 
         upsert: false
    }) 
    .then(result => {
-        console.log('Marked Watched')
-        res.json('Marked Watched')
+        console.log(`Status changed to ${req.body.isComplete}`)
+        res.json(`Watched status changed to ${req.body.isComplete}`)
    })
    .catch(error => console.error(error))
-})
-
-
-app.put('/markUnWatched', (req, res) => {
-    db.collection('movies').updateOne({name:req.body.movieFromJS}, {
-        $set: {
-            completed: req.body.isComplete
-        }
-    },{
-        sort: {_id: -1}, 
-        upsert: false
-    })
-    .then(result => {
-        console.log('Marked UnWatched')
-        res.json('Marked UnWatched')
-    })
-    .catch(error => console.error(error))
 })
 
 

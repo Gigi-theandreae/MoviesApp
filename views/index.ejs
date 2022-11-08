@@ -22,14 +22,12 @@
         <!-- movies is the array of objects (data) -->
            <li class="movie" style="margin-top: 0.5rem; list-style: none">
             <!-- With click change the color of the check icon -->
+            <span class="status<%= movies[i].completed ? ' completed' : '' %>">
                 <span id="checkbox" class="fa fa-check"></span>
                 <!-- With click color will change to rgb(125, 209, 0); -->
-            <% if(movies[i].completed === true){%>
-
-                <span class="status completed"><%= movies[i].name %></span>
-            <% } else { %>
-                <span class="status incomplete"><%= movies[i].name %></span>
-            <% } %>
+                <!-- we only need one span since we are handling the completed status via ejs logic -->
+                <span class="movieName"><%= movies[i].name %></span>
+           </span>
             <span class='fa fa-trash'></span>
            </li> 
         <% } %>
