@@ -59,7 +59,7 @@ app.put("/toggleWatched", (req, res) => {
 
 
 app.delete('/deleteMovie', (req, res) => {
-    db.collection('movies').deleteOne({thing: req.body.movieFromJS})
+    db.collection('movies').deleteOne({name: req.body.movieFromJS})
 
     .then(result => {
         console.log('Movie deleted')

@@ -2,7 +2,7 @@ const deleteBtn = document.querySelectorAll('.fa-trash')
 const movieWatched = document.querySelectorAll('.status')
 
 Array.from(deleteBtn).forEach((element) => {
-    element.addEventListener('click', deleteMovie)
+    element.addEventListener('click', (e) => {deleteMovie(e);})
 })
 
 
@@ -11,8 +11,9 @@ Array.from(movieWatched).forEach((element) => {
 })
 
 
-async function deleteMovie() {
-    const movieText = this.parentNode.childNodes[1].innerText;
+async function deleteMovie(event) {
+    const movieText = event.target.parentNode;
+    console.log(movieText)
     try {
         const response = await fetch ('deleteMovie', {
             method: 'delete',
