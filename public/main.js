@@ -12,14 +12,14 @@ Array.from(movieWatched).forEach((element) => {
 
 
 async function deleteMovie(event) {
-    const movieText = event.target.parentNode;
-    console.log(movieText)
+    const trashBin = event.target.parentElement
+    console.log(trashBin) //targeting li
     try {
         const response = await fetch ('deleteMovie', {
             method: 'delete',
             headers: {'Content-Type': 'application/json'}, 
             body: JSON.stringify({ 
-                'movieFromJS': movieText,
+                'movieFromJS': trashBin,
         })
         })
         const data = await response.json()
